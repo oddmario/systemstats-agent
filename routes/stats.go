@@ -101,8 +101,8 @@ func Stats(c *gin.Context) {
 		resJson, _ = sjson.Set(resJson, json_key_prefix+"flags", interface_["flags"])
 		resJson, _ = sjson.Set(resJson, json_key_prefix+"hardware_address", interface_["hardware_addr"])
 		resJson, _ = sjson.Set(resJson, json_key_prefix+"addresses", interface_["addrs"])
-		resJson, _ = sjson.Set(resJson, json_key_prefix+"downrate_kb_per_sec", interface_["down_kb_per_sec"])
-		resJson, _ = sjson.Set(resJson, json_key_prefix+"uprate_kb_per_sec", interface_["up_kb_per_sec"])
+		resJson, _ = sjson.Set(resJson, json_key_prefix+"downrate_KB_per_sec", interface_["down_KB_per_sec"])
+		resJson, _ = sjson.Set(resJson, json_key_prefix+"uprate_KB_per_sec", interface_["up_KB_per_sec"])
 
 		i++
 	}
@@ -123,8 +123,8 @@ func Stats(c *gin.Context) {
 		resJson, _ = sjson.Set(resJson, json_key_prefix+"used_inodes", disk["used_inodes"])
 		resJson, _ = sjson.Set(resJson, json_key_prefix+"total_inodes", disk["total_inodes"])
 
-		resJson, _ = sjson.Set(resJson, json_key_prefix+"read_speed_kb_per_sec", disk["read_speed"])
-		resJson, _ = sjson.Set(resJson, json_key_prefix+"write_speed_kb_per_sec", disk["write_speed"])
+		resJson, _ = sjson.Set(resJson, json_key_prefix+"read_speed_KB_per_sec", disk["read_speed"])
+		resJson, _ = sjson.Set(resJson, json_key_prefix+"write_speed_KB_per_sec", disk["write_speed"])
 		resJson, _ = sjson.Set(resJson, json_key_prefix+"iops", disk["iops"])
 
 		i++

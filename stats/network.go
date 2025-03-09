@@ -64,8 +64,8 @@ func GetNetworks() ([]map[string]interface{}, error) {
 			"flags":           interface_.Flags,
 			"hardware_addr":   interface_.HardwareAddr,
 			"addrs":           interfaceAddrs,
-			"down_kb_per_sec": float64(bytesRecv) / 1024, // KB/s
-			"up_kb_per_sec":   float64(bytesSent) / 1024, // KB/s
+			"down_KB_per_sec": float64(bytesRecv) / 1024, // KB/s
+			"up_KB_per_sec":   float64(bytesSent) / 1024, // KB/s
 		})
 	}
 
