@@ -1,0 +1,14 @@
+{
+    "listener": "0.0.0.0:80",
+    "ssl": {
+        "enabled": false,
+        "key_path": "",
+        "cert_path": "",
+        "listener": "0.0.0.0:443"
+    },
+    "corsAllowAll": true,
+    "enable_pprof": false,
+    "pprof_secret": "MySecret123",
+    "debug": false,
+    "auth_key": "Changeme123"
+}
