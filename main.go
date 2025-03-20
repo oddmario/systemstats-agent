@@ -103,7 +103,7 @@ func main() {
 		ReadHeaderTimeout: 1 * time.Minute,                                              // https://ieftimov.com/posts/make-resilient-golang-net-http-servers-using-timeouts-deadlines-context-cancellation/#server-timeouts---first-principles
 		TLSNextProto:      make(map[string]func(*http.Server, *tls.Conn, http.Handler)), // disable http2
 	}
-	httpserver.HttpServer.SetKeepAlivesEnabled(true) // even though we hate using keepalives on our HTTP clients, but always make sure keep alives are supported and enabled on our HTTP server!!!
+	httpserver.HttpServer.SetKeepAlivesEnabled(true) // always ensure keepalives are enabled
 
 	tcpListener := &customListener{ln.(*net.TCPListener)}
 	err = httpserver.HttpServer.Serve(tcpListener)
