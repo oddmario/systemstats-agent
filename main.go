@@ -72,8 +72,7 @@ func main() {
 			}
 			httpserver.HttpsServer.SetKeepAlivesEnabled(true)
 
-			tcpListenerHTTPS := &customListener{httpsLn.(*net.TCPListener)}
-			httpsServeErr := httpserver.HttpsServer.ServeTLS(tcpListenerHTTPS, SSL_CERT_PATH, SSL_KEY_PATH)
+			httpsServeErr := httpserver.HttpsServer.ServeTLS(httpsLn, SSL_CERT_PATH, SSL_KEY_PATH)
 			if httpsServeErr != nil {
 				fmt.Println(httpsServeErr)
 
@@ -105,8 +104,7 @@ func main() {
 	}
 	httpserver.HttpServer.SetKeepAlivesEnabled(true) // always ensure keepalives are enabled
 
-	tcpListener := &customListener{ln.(*net.TCPListener)}
-	err = httpserver.HttpServer.Serve(tcpListener)
+	err = httpserver.HttpServer.Serve(ln)
 	if err != nil {
 		fmt.Println(err)
 
