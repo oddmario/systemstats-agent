@@ -152,17 +152,6 @@ func Stats(c *gin.Context) {
 	resJson, _ = sjson.Set(resJson, "host.avg_load_1", hostInfo["avg_load_1"])
 	resJson, _ = sjson.Set(resJson, "host.avg_load_5", hostInfo["avg_load_5"])
 	resJson, _ = sjson.Set(resJson, "host.avg_load_15", hostInfo["avg_load_15"])
-	resJson, _ = sjson.Set(resJson, "host.temperatures", []map[string]interface{}{})
-
-	i = 0
-	for _, temp_ := range hostInfo["temperatures"].([]map[string]interface{}) {
-		var json_key_prefix string = "host.temperatures." + utils.I64ToStr(i) + "."
-
-		resJson, _ = sjson.Set(resJson, json_key_prefix+"sensor_key", temp_["sensor_key"])
-		resJson, _ = sjson.Set(resJson, json_key_prefix+"temperature", temp_["temperature"])
-
-		i++
-	}
 
 	c.Writer.WriteString(utils.PrettifyJson(resJson))
 }
