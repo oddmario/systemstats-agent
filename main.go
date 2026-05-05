@@ -65,7 +65,7 @@ func main() {
 				Addr:              httpsListenerData,
 				Handler:           r,
 				ReadTimeout:       0,
-				WriteTimeout:      0,
+				WriteTimeout:      1 * time.Minute,
 				IdleTimeout:       5 * time.Minute,
 				ReadHeaderTimeout: 1 * time.Minute,                                              // https://ieftimov.com/posts/make-resilient-golang-net-http-servers-using-timeouts-deadlines-context-cancellation/#server-timeouts---first-principles
 				TLSNextProto:      make(map[string]func(*http.Server, *tls.Conn, http.Handler)), // disable http2
@@ -97,7 +97,7 @@ func main() {
 		Addr:              listenerData,
 		Handler:           r,
 		ReadTimeout:       0,
-		WriteTimeout:      0,
+		WriteTimeout:      1 * time.Minute,
 		IdleTimeout:       5 * time.Minute,
 		ReadHeaderTimeout: 1 * time.Minute,                                              // https://ieftimov.com/posts/make-resilient-golang-net-http-servers-using-timeouts-deadlines-context-cancellation/#server-timeouts---first-principles
 		TLSNextProto:      make(map[string]func(*http.Server, *tls.Conn, http.Handler)), // disable http2
